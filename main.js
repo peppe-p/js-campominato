@@ -32,10 +32,25 @@ switch (selected_level) {
         break;
 }
 var max = level - 16;
-
+console.log(bomb_number);
 //In seguito deve chiedere all’utente(100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
 //L’utente non può inserire più volte lo stesso numero.
-var n_user = n_user.push(prompt("Inserisci un numero da 1 a 100"));
+var n_list = [];
+for (var i = 0; i < max; i++) {
+    var n_user = parseInt(prompt("Inserisci un numero da 1 a " + level));
+    if (!bomb_number.includes(n_user)) {
+        if (!n_list.includes(n_user)) {
+            n_list.push(n_user);
+        } else {
+            alert("Hai gia inserito questo numero!      I numeri inseriti: " + n_list);
+            i--;
+        }
+    } else {
+        alert("Hai beccato una bomba! HAI PERSO!")
+        break;
+    }
+
+}
 
 //Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
 //La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
