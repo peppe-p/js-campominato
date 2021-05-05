@@ -42,16 +42,21 @@ for (var i = 0; i < max; i++) {
         if (!n_list.includes(n_user)) {
             n_list.push(n_user);
         } else {
+            //Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
             alert("Hai gia inserito questo numero!      I numeri inseriti: " + n_list);
             i--;
         }
     } else {
-        alert("Hai beccato una bomba! HAI PERSO!")
+        //Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
+        alert("Hai beccato una bomba! HAI PERSO!            Punteggio: " + n_list.length);
         break;
     }
 
 }
 
-//Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
+
 //La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
-//Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
+if (n_list.length == (max - 16)) {
+    alert('Congratulazioni!  HAI VINTO!          Punteggio:' + n_list.length);
+}
+
